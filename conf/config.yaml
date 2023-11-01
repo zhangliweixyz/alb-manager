@@ -1,0 +1,72 @@
+logfilepath: "./alb.log"
+listenaddr: ":8080"
+ops-token: ""
+
+#rd-common
+rdcommon:
+  url: "http://192.168.26.206:80/apisix/admin/"
+  token: ""
+  etcd:
+    - "192.168.26.206:2379"
+  etcduser: ""
+  etcdpass: ""
+#qa-common
+alb-si52f4tp:
+  url: "http://192.168.64.241:80/apisix/admin/"
+  token: ""
+  etcd:
+    - "192.168.64.99:2379"
+    - "192.168.64.39:2379"
+    - "192.168.64.220:2379"
+  etcduser: ""
+  etcdpass: ""
+#preon-common
+alb-iv7qwlsd:
+  url: "http://172.20.48.100:80/apisix/admin/"
+  token: ""
+  etcd:
+    - "172.20.48.100:2379"
+    - "172.20.48.56:2379"
+    - "172.20.48.60:2379"
+  etcduser: ""
+  etcdpass: ""
+#prod-common
+alb-cy1nyejt:
+  url: "http://172.21.59.231:80/apisix/admin/"
+  token: "mFNJZk7dx0gEUbS9hUqgYBApy3Qpz9n0"
+  etcd:
+    - "172.21.237.131:2379"
+    - "172.21.237.122:2379"
+    - "172.21.237.91:2379"
+  etcduser: ""
+  etcdpass: ""
+#prod-public
+alb-fpqa0pfb:
+  url: "http://172.21.243.141:80/apisix/admin/"
+  token: ""
+  etcd:
+    - "172.21.208.149:2379"
+    - "172.21.208.41:2379"
+    - "172.21.208.111:2379"
+  etcduser: ""
+  etcdpass: ""
+#prod-inner
+alb-su317i0w:
+  url: "http://172.21.59.218:80/apisix/admin/"
+  token: ""
+  etcd:
+    - "172.21.236.146:2379"
+    - "172.21.236.108:2379"
+    - "172.21.236.80:2379"
+  etcduser: ""
+  etcdpass: ""
+#prod-dzkz
+alb-0ekthhem:
+  url: "http://172.21.241.25:80/apisix/admin/"
+  token: ""
+  etcd:
+    - "172.21.131.195:2379"
+    - "172.21.131.204:2379"
+    - "172.21.131.15:2379"
+  etcduser: ""
+  etcdpass: ""
