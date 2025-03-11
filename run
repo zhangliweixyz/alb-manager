@@ -1,0 +1,25 @@
+#!/bin/bash
+export LANG="zh_CN.UTF-8"
+ulimit -n 102400
+ulimit -c unlimited
+
+
+APP_NAME=ops-albmanager
+LOG_PATH=/data/logs/ops-albmanager
+
+path=`pwd`
+
+echo $path + $APP_NAME
+
+cmd="./alb-manager"
+
+echo $cmd
+
+myid=`id -u`
+
+if [ $myid -eq 0 ]; then
+    # daemontools 会以root身份运行run脚本。用setuidgid切换到work账户。
+    exec setuidgid work $cmd >>$LOG_PATH/stdout.log 2>>$LOG_PATH/stderr.log
+else
+    exec $cmd >>$LOG_PATH/stdout.log 2>>$LOG_PATH/stderr.log
+fi

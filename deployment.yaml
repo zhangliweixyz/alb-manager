@@ -1,0 +1,41 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  labels:
+    app: ops-alb-manager
+  name: ops-alb-manager
+  namespace: new-ops-dev
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: ops-alb-manager
+  template:
+    metadata:
+      labels:
+        app: ops-alb-manager
+    spec:
+      containers:
+        - name: ops-alb-manager
+          image: 'harbor.test.com/new-ops-dev-group/ops-alb-manager:${CICD_EXECUTION_SEQUENCE}'
+          imagePullPolicy: Always
+          env:
+            - name: RUN_TYPE
+              value: SERVER
+            - name: DEPLAY_ENV
+              value: RANCHER
+          ports:
+            - name: http
+              containerPort: 8080
+              protocol: TCP
+          resources:
+            limits:
+              cpu: 1000m
+              memory: 1024Mi
+            requests:
+              cpu: 300m
+              memory: 512Mi
+
+      imagePullSecrets:
+        - name: harbor-test-com
+      schedulerName: default-scheduler
