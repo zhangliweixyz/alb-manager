@@ -254,7 +254,7 @@ func Test(c *gin.Context) {
 
 	bytesData, _ := json.Marshal(routedata)
 	req, _ := http.NewRequest("POST", "http://192.168.26.206:80/apisix/admin/routes/", bytes.NewReader(bytesData))
-	req.Header.Add("X-API-KEY", "q5kbJbYiuzyeL8a7bKVeoabce8n9RZJ6")
+	req.Header.Add("X-API-KEY", "token")
 	//client := http.Client{}
 	//发送http请求
 	//res, _ := client.Do(req)
